@@ -14,8 +14,8 @@ INSTALL VIRTUALENV
     -> pip install -r requirements.txt
 
 3° CREAR PROYECTO DJANGO
-    core == app central de nuetro proyecto
     -> django-admin startproject core .
+    core == app central de nuetro proyecto
 
 
 
@@ -34,3 +34,13 @@ para instalar paquetes se escribe en "requirements.txt":
     
     -> para ejecutar ponemos:
         pip install -r requirements.txt
+
+
+GITHUB - LINUX:
+    ->  
+
+-----------------------------------------------------------------------------
+LINK FILES - DOCS:
+->  ln -s /../../doc_or_file /link_name
+REMOVE
+->rm link_name
