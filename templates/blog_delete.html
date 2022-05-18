@@ -1,0 +1,9 @@
+are you sure?
+<form method = "POST">
+    {% comment %} SIEMPRE SE AGREGA TOKEN EN FORMULARIO {% endcomment %}
+    {% csrf_token %}
+    {{form}}
+    
+    <button type="submit">Delete</button>
+    
+    </form>

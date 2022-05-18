@@ -1,0 +1,36 @@
+REQUIREMENTS:
+INSTALL VIRTUALENV
+    -> pip install virtualenv
+
+1° CREAR ENTORNO VIRTUAL
+    -> virtualenv env
+    (EN LINUX)
+    -> source env/bin/activate 
+
+2° CREAR .TXT PARA IR INSTALANDO LO QUE SE REQUIERE EN EL PROYECTO
+    .TXT 
+        -> django==4.0.4
+    (SE INSTALA DJANGO)
+    -> pip install -r requirements.txt
+
+3° CREAR PROYECTO DJANGO
+    core == app central de nuetro proyecto
+    -> django-admin startproject core .
+
+
+
+
+
+
+ejecutar app django:
+    -> python manage.py runserver
+
+url: /admin
+   -> python manage.py createsuperuser  (crea un admin)
+
+para instalar paquetes se escribe en "requirements.txt":
+    ->  django==4.0.4
+    ->  django-environ==0.8.1
+    
+    -> para ejecutar ponemos:
+        pip install -r requirements.txt

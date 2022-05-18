@@ -1,19 +1,23 @@
-from pathlib import Path
+#INFORMACION DE LA APLICACION
+#INFORMACION DE LOS PARAMETROS
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+from pathlib import Path
+import os
+import environ # PARA PROTEGER VARIABLES DE AMBIENTE, PARA SEGURIDAD DE DJANGO
+
+env = environ.Env()
+environ.Env.read_env()
+
+#   REFERENCIA AL DIRECTORIO DONDE SE ENCUENTRA NUESTRO ARCHIVO DJANGO      
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
+# CUANDO HAGAMOS DESPLIEGUE DEBE ESTAR EN FALSE
+DEBUG = os.environ.get('DEBUG')
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-&q=uvc5a3011n(ra6#(g-prj*!!%y!-(glb^9dd@pd^r^0%lqf'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
+# ES EL URL -> 127.0.0.1:8000 GRALMENTE DEBERIA ESTAR "*"
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -25,7 +29,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    'core',
+    'blog',
+    'tailwind',
+    'theme'
 ]
+
+TAILWIND_APP_NAME = 'theme'
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
+NPM_BIN_PATH = '/usr/local/bin/npm' 
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -42,7 +58,8 @@ ROOT_URLCONF = 'core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        # con BASE_DIR apuntamos al folder y con 'templates' le indicamos el folder de nuestros templates
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+blog list
+<br>
+{% for post in posts%}
+{% comment %} se pone post.id porque se declaró de esa forma en urls.py {% endcomment %}
+<a href= "{% url 'blog:detail' post.id%}">  {{ post.title }} </a>
+<a href="{% url 'blog:update' post.id%}">Update</a>
+<a href="{% url 'blog:delete' post.id%}">Delete</a>
+{% endfor %}
+
+<br>
+<a href="{% url 'blog:create'%}">Create</a>
+
+{% endblock content %}
